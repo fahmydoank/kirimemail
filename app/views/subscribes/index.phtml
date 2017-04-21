@@ -1,0 +1,46 @@
+<?php $this->getContent(); ?>
+
+<table width="100%">
+	<tr>
+		<td align="right">
+			<?php echo \Phalcon\Tag::linkTo(array("subscribes/new", "Create a Subscribe", "class" => "btn btn-primary")); ?>
+		</td>
+	<tr>
+</table>
+
+<table class="browse table" align="center" width="60%">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+		if(isset($page->items)){
+			foreach($page->items as $subscribes){ ?>
+		<tr>
+			<td><?php echo $subscribes->id ?></td>
+			<td><?php echo $subscribes->name ?></td>
+			<td><?php echo $subscribes->email ?></td>
+			<td>
+			<?php echo \Phalcon\Tag::linkTo(array("subscribes/edit/".$subscribes->id, "<i class='glyphicon glyphicon-pencil'></i> EDIT", "class" => "btn btn-xs btn-primary")); ?> &nbsp;
+			<?php echo \Phalcon\Tag::linkTo(array("subscribes/delete/".$subscribes->id, "<i class='glyphicon glyphicon-remove'></i> DELETE", "class" => "btn btn-xs btn-danger")); ?>
+			</td>
+		</tr>
+		<?php }
+		} ?>
+	</tbody>
+</table>
+<?php if($page->last > 1) { ?>
+<nav aria-label="Page navigation" align="center">
+	<ul class="pagination">
+		<li><?php echo \Phalcon\Tag::linkTo("subscribes/search", "First") ?></li>
+		<li><?php echo \Phalcon\Tag::linkTo("subscribes/search?page=".$page->before, "&laquo;") ?></li>
+		<li><?php echo \Phalcon\Tag::linkTo("subscribes/search?page=".$page->next, "Next") ?></li>
+		<li><?php echo \Phalcon\Tag::linkTo("subscribes/search?page=".$page->last, "&raquo;") ?></li>
+	</ul>
+</nav>
+<?php } ?>

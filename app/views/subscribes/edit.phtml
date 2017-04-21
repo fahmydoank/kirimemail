@@ -1,0 +1,33 @@
+<?php use Phalcon\Tag as Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+
+	<table width="100%">
+		<tr>
+			<td align="left"><?php echo Tag::linkTo(array("subscribes", "Back", "class" => "btn btn-primary")) ?></td>
+		<tr>
+	</table>
+
+	<div align="center">
+		<h1>Edit subscribe</h1>
+	</div>
+
+<?php echo \Phalcon\Tag::form("subscribes/save") ?>
+	<div class="form-center">
+		<?php echo \Phalcon\Tag::hiddenField("id") ?>
+		<div class="input-group">
+          <label for="name">Name</label>
+		  <?php echo \Phalcon\Tag::textField(array("name", "size" => 30, "class" => "form-control")) ?>
+		</div>
+		<div class="input-group">
+           <label for="email">Email</label>
+		  <?php echo \Phalcon\Tag::emailField(array("email", "size" => 30, "class" => "form-control")) ?>
+		</div>
+		<br/>
+		<div class="input-group">
+			<?php echo \Phalcon\Tag::submitButton(array("Save", "class" => "btn btn-primary")) ?>
+		</div>
+	</div>
+</form>
+

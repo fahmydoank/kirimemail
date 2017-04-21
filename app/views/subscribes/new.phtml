@@ -1,0 +1,25 @@
+
+<?php echo \Phalcon\Tag::form(array("subscribes/create", "autocomplete" => "off")) ?>
+
+    <?php echo $this->getContent(); ?>
+
+    <div align="center">
+        <h1>Create Subscribe</h1>
+    </div>
+	
+	<div class="form-center">
+		<div class="input-group">
+          <label for="name">Name</label>
+		  <?php echo \Phalcon\Tag::textField(array("name", "size" => 30, "class" => "form-control")) ?>
+		</div>
+		<div class="input-group">
+           <label for="email">Email</label>
+		  <?php echo \Phalcon\Tag::emailField(array("email", "size" => 30, "class" => "form-control")) ?>
+		</div>
+		<br/>
+		<div class="input-group">
+			<?php echo \Phalcon\Tag::submitButton(array("Save", "class" => "btn btn-primary")) ?>
+		</div>
+	</div>
+
+</form>
