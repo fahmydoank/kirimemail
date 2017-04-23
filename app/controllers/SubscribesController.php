@@ -18,12 +18,8 @@ class SubscribesController extends ControllerBase
                 $numberPage = 1;
             }
         }
-		var_dump($this->session->conditions);
-
+		
         $parameters = array();
-        /*if ($this->session->conditions) {
-            $parameters["conditions"] = $this->session->conditions;
-        }*/
         $parameters["order"] = "id";
 
         $subscribes = Subscribes::find($parameters);
